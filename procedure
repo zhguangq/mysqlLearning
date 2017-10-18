@@ -1,0 +1,40 @@
+delimiter //
+drop procedue if exists p;
+create procedure p(in a int, out b int)
+begin
+  set b=a*2; 
+end;
+create procedure p1
+begin
+ insert t values();
+ select * from t;
+end;
+drop procedure if exists pfz;
+create procedure pfz(a int)
+if a=1 then
+  select 10;
+end if;
+case 
+  when a=2 then 
+    select 2;
+   when a=3 then
+    select 3;
+    else
+      select 4;
+ end case;
+while a>10 do
+    select 8;
+ end while;
+ 
+ repeat do
+ untile a<12 end repeat;
+ 
+ lp:loop
+ leave lp; 
+ continue;
+ end loop;
+delimiter ;
+
+call p(3,@a);
+select @a;
+call p1;
